@@ -1,0 +1,31 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Daily Demand Visualization
+def daily_demand_summary (df: pd.DataFrame) -> pd.Series:
+    return df.groupby(df['Date Time'].dt.dayofweek)['National Unsuppressed Demand'].mean()
+
+
+def plot_daily_demand(df: pd.DataFrame):
+    unsuppressed_daily_demand = df.groupby(df['Date Time'].dt.dayofweek)['National Unsuppressed Demand'].mean()
+    plt.title("Average Daily Energy Demand")
+    plt.xlabel("Day of the Week")
+    plt.ylabel("Average Demand (MW)")
+    plt.plot(unsuppressed_daily_demand.index, unsuppressed_daily_demand.values)
+    plt.xticks(unsuppressed_daily_demand.index, ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
+    plt.grid()
+    plt.show()
+
+
+#Monthly Demand Visualization
+def monthly_demand_summary(df: pd.DataFrame) -> pd.Series:
+    return df.groupby(df['Date Time'].dt.month)['National Unsuppressed Demand'].mean()
+
+def plot_monthly_demand(df: pd.DataFrame):
+    monthly_avg = monthly_demand_summary(df)
+    monthly_avg.plot(kind="bar", figsize=(10,6), title="Average Monthly Demand")
+    plt.ylabel("Demand")
+    plt.show()
+
+!git add .
+!git commit -m "Add visualization functions for daily and monthly energy demand"
