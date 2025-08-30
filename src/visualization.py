@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def hourly_demand_summary(df: pd.DataFrame) -> pd.Series:
-    # Calculate the average demand for each hour
     return df.groupby(df["Date Time"].dt.hour)['National Unsuppressed Demand'].mean()
 
 def plot_hourly_demand(df):
+    df["Date Time"] = pd.to_datetime(df["Date Time"])
     hourly_demand = df.groupby(df["Date Time"].dt.hour)['National Unsuppressed Demand'].mean()
     plt.plot(hourly_demand.index, hourly_demand.values)
     plt.title("Average Hourly National Unsuppressed Demand")
