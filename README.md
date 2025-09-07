@@ -74,4 +74,3 @@ This project builds a **machine learning model** using national time-series data
 
 ---
 
-## 📂 Repository Structure  
