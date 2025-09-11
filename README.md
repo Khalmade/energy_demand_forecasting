@@ -38,7 +38,7 @@ This project builds a **machine learning model** using national time-series data
   - Linear Regression  
   - Decision Tree  
   - Random Forest  
-- Baseline: "yesterday’s demand at the same hour = today’s prediction".  
+
 
 ### 4. Evaluation  
 - Metric: **Mean Absolute Error (MAE)**.  
@@ -63,7 +63,7 @@ This project builds a **machine learning model** using national time-series data
 
 ## 🛠 Tools & Libraries  
 - **Python** → Pandas, NumPy, Scikit-learn, Matplotlib  
-- **Excel/CSV** → Data exploration and cleaning  
+- **CSV** → Data exploration and cleaning  
 
 ---
 
